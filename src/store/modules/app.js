@@ -162,6 +162,7 @@ const app = {
             localStorage.pageOpenedList = JSON.stringify(state.pageOpenedList);
         },
         setOpenedList (state) {
+            // TODO 去除路由不存在的opened list
             state.pageOpenedList = localStorage.pageOpenedList ? JSON.parse(localStorage.pageOpenedList) : [otherRouter.children[0]];
         },
         setCurrentPath (state, pathArr) {

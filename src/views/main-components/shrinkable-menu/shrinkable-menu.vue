@@ -7,7 +7,8 @@
         <slot name="top"></slot>
         <sidebar-menu 
             v-show="!shrink"
-            :menu-theme="theme" 
+            :icon-size="14"
+            :menu-theme="theme"
             :menu-list="menuList" 
             :open-names="openNames"
             @on-change="handleChange"
@@ -26,6 +27,7 @@
 import sidebarMenu from './components/sidebarMenu.vue';
 import sidebarMenuShrink from './components/sidebarMenuShrink.vue';
 import util from '@/libs/util';
+
 export default {
     name: 'shrinkableMenu',
     components: {

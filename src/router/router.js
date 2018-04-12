@@ -66,7 +66,7 @@ export const otherRouter = {
 
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
 export const appRouter = [
-    {
+    /*{
         path: '/access',
         icon: 'key',
         name: 'access',
@@ -86,8 +86,8 @@ export const appRouter = [
         children: [
             { path: 'index', title: '权限测试页', name: 'accesstest_index', access: 0, component: () => import('@/views/access/access-test.vue') }
         ]
-    },
-    {
+    },*/
+    /*{
         path: '/international',
         icon: 'earth',
         title: {i18n: 'international'},
@@ -96,8 +96,33 @@ export const appRouter = [
         children: [
             { path: 'index', title: {i18n: 'international'}, name: 'international_index', component: () => import('@/views/international/international.vue') }
         ]
-    },
+    },*/
     {
+        path: '/database',
+        icon: 'database',
+        iconType: 'font-awesome',
+        title: '数据管理',
+        name: 'database',
+        component: Main,
+        children: [
+            {
+                path: 'manager',
+                icon: 'cogs',
+                iconType: 'font-awesome',
+                title: '数据库',
+                name: 'manager',
+                component: () => import('@/views/database/manager/manager.vue')
+            },
+            {
+                path: 'entity-fresh',
+                icon: 'funnel',
+                title: '数据来源',
+                name: 'entity-fresh',
+                component: () => import('@/views/database/entity-fresh/entity-fresh.vue')
+            }
+        ]
+    },
+    /*{
         path: '/component',
         icon: 'social-buffer',
         name: 'component',
@@ -174,20 +199,20 @@ export const appRouter = [
             { path: 'workflow', title: '工作流', name: 'workflow', icon: 'arrow-swap', component: () => import('@/views/form/work-flow/work-flow.vue') }
 
         ]
-    },
-    // {
-    //     path: '/charts',
-    //     icon: 'ios-analytics',
-    //     name: 'charts',
-    //     title: '图表',
-    //     component: Main,
-    //     children: [
-    //         { path: 'pie', title: '饼状图', name: 'pie', icon: 'ios-pie', component: resolve => { require('@/views/access/access.vue') },
-    //         { path: 'histogram', title: '柱状图', name: 'histogram', icon: 'stats-bars', component: resolve => { require('@/views/access/access.vue') }
+    },*/
+    /*{
+        path: '/charts',
+        icon: 'ios-analytics',
+        name: 'charts',
+        title: '图表',
+        component: Main,
+        children: [
+            { path: 'pie', title: '饼状图', name: 'pie', icon: 'ios-pie', component: () => import('@/views/access/access.vue')},
+            { path: 'histogram', title: '柱状图', name: 'histogram', icon: 'stats-bars', component: () => import('@/views/access/access.vue')}
 
-    //     ]
-    // },
-    {
+        ]
+    },*/
+    /*{
         path: '/tables',
         icon: 'ios-grid-view',
         name: 'tables',
@@ -221,7 +246,7 @@ export const appRouter = [
         children: [
             { path: 'index', title: '错误页面', name: 'errorpage_index', component: () => import('@/views/error-page/error-page.vue') }
         ]
-    }
+    }*/
 ];
 
 // 所有上面定义的路由都要写在下面的routers里

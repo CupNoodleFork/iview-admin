@@ -1,3 +1,25 @@
+@import "~iview/src/styles/custom.less";
+.color-error {
+    color: @error-color;
+    &-important {
+        color: @error-color !important;
+    }
+}
+
+.color-success {
+    color: @success-color;
+    &-important {
+        color: @success-color !important;
+    }
+}
+
+.color-warning {
+    color: @warning-color;
+    &-important {
+        color: @warning-color !important;
+    }
+}
+
 .lock-screen-back{
     border-radius: 50%;
     z-index: -1;
@@ -7,6 +29,40 @@
     top: 50%;
     transform: translate(-50%,-50%);
     transition: all 3s;
+}
+.ivu-menu-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    & > svg {
+       margin-right: 6px;
+    }
+}
+.ivu-menu-vertical .ivu-menu-submenu-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.ivu-menu-vertical .ivu-menu-submenu-title-icon {
+    top: 0px;
+}
+.ivu-dropdown-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.ivu-dropdown-item-divided {
+    display: block;
+}
+textarea.ivu-input {
+    font-size: 12px;
+    resize: none;
+    min-height: 80px;
+}
+.fa-icon {
+    flex: 0 0 auto;
 }
 .main{
     position: absolute;
@@ -31,7 +87,7 @@
     .layout-text{
         display: inline-block;
         white-space:nowrap;
-        position: absolute;
+        //position: absolute;
     }
     .main-hide-text .layout-text{
         display: none;

@@ -5,12 +5,15 @@ import {appRouter} from './router/router';
 import store from './store';
 import App from './app.vue';
 import '@/locale';
-import 'iview/dist/styles/iview.css';
+import 'iview/src/styles/index.less';
 import VueI18n from 'vue-i18n';
-import util from './libs/util';
+import 'vue-awesome/icons';
+import Icon from 'vue-awesome/components/Icon';
+// import util from './libs/util';
 
 Vue.use(VueI18n);
 Vue.use(iView);
+Vue.component('iconAwesome', Icon);
 
 new Vue({
     el: '#app',
@@ -28,10 +31,11 @@ new Vue({
         // 权限菜单过滤相关
         this.$store.commit('updateMenulist');
         // iview-admin检查更新
-        util.checkUpdate(this);
+        // util.checkUpdate(this);
     },
     created () {
         let tagsList = [];
+
         appRouter.map((item) => {
             if (item.children.length <= 1) {
                 tagsList.push(item.children[0]);
