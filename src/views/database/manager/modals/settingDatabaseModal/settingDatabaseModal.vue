@@ -184,7 +184,7 @@ export default {
                 this.step = 2;
             } else {
                 const params = {
-                    type: this.form.type,
+                    dataBaseType: this.form.type,
                     username: this.form.username,
                     password: this.form.password,
                     url: this.form.host,
@@ -194,9 +194,13 @@ export default {
                     params.serviceName = this.form.serviceName;
                 }
                 testDatabase(params).then(result => {
-                    this.linkSuccess = true;
+                    if (result.data.status !== 0) {
+                        this.linkSuccess = true;
+                    } else {
+                        this.linkSuccess = false;
+                    }
                 }).catch(error => {
-                    this.linkSuccess = true;
+                    this.linkSuccess = false;
                     throw error;
                 });
             }
@@ -207,7 +211,7 @@ export default {
                     return;
                     const params = {
                         name: this.form.name,
-                        type: this.form.type,
+                        dataBaseType: this.form.type,
                         username: this.form.username,
                         password: this.form.password,
                         url: this.form.host,
@@ -217,7 +221,11 @@ export default {
                         params.serviceName = this.form.serviceName;
                     }
                     saveDatabase(params).then(result => {
-                        this.trigger = false;
+                        if (result.data.status !== 0) {
+                            this.trigger = false;
+                        } else {
+                            this.$Message.error({content: result.data.msg});
+                        }
                     }).catch(error => {
                         throw error;
                     });

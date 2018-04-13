@@ -24,7 +24,7 @@
             </Col>
         </Row>
         <Row :gutter="10">
-            <Col span="8" class="margin-bottom-10" v-for="database in databaseList">
+            <Col span="8" class="margin-bottom-10" v-for="database in databaseList" :key="database.id">
             <Card>
                 <p slot="title">
                     <Row type="flex" align="middle">
